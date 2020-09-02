@@ -1,0 +1,23 @@
+{
+    "todo": {
+      "welcome": "Welcome",
+      "application":"Application",
+      "changelanguage": "Change Language",
+      "changetheme":"Change Theme",
+      "logout":"Logout",
+      "todo":"To Do",
+      "placeholder": "What is next in your todo List",
+      "cancel":"Cancel",
+      "completetask":"Complete Task",
+      "edittask":"Edit Task",
+      "deletetask":"Delete Task",
+      "save":"Save",
+      "checkall":"Check All",
+      "selectall":"Select All",
+      "active":"Active",
+      "completed":"Completed",
+      "itemsleft":"Items Left",
+      "clearcompleted":"Clear clearcompleted"
+
+    }
+  }

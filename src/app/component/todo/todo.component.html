@@ -1,0 +1,98 @@
+<header>
+  <p>To Do App <span i18n>{{ 'todo.welcome' |translate}}</span> {{emailId}} !</p>
+  <span class="logout">{{ 'todo.logout' | translate}}</span> 
+  <svg (click)="logout()" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-power" fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M5.578 4.437a5 5 0 1 0 4.922.044l.5-.866a6 6 0 1 1-5.908-.053l.486.875z" />
+    <path fill-rule="evenodd" d="M7.5 8V1h1v7h-1z" />
+  </svg>
+
+</header>
+<div>
+  <div>
+    <form name="addTodoForm" #addTodoForm="ngForm" (ngSubmit)="onSubmitAddForm(addTodoForm);" novalidate>
+      <fieldset>
+        <legend class="sub-header"  [style.color]="color1">{{'todo.todo'|translate}}  - {{'todo.application' |translate}}</legend>
+        <h6>{{'todo.changelanguage' |translate}}</h6>
+        <select #langSelect (change)="translate.use(langSelect.value)">
+          <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+        </select>
+        <div class="form-group">
+          <input type="text" class="form-control" #task="ngModel" name="task" id="task" [(ngModel)]="todo.task"
+            placeholder="{{'todo.placeholder' |translate}}" required>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+</div>
+<div *ngIf="isSubmited">
+  <div>
+    <fieldset>
+      <div class="table-responsive">
+        <table class="table table-hover">
+
+          <tbody>
+
+            <tr *ngFor="let todo of tasks; let i= index">
+              <td scope="row" data-toggle="tooltip" title="{{'todo.completetask' |translate}}"> <input type="checkbox" [checked]="todo.active" (click)="editRecord($event,todo.id)"
+                  class="form-check-input"></td>
+              <td [ngClass]="todo.active? 'strikeout':''" [contentEditable]="enableEdit">{{todo.task}}</td>
+              <td data-toggle="tooltip" title="{{'todo.edittask' |translate}}">
+                <button *ngIf="enableEdit && enableEditIndex == i" (click)="enableEdit=false" 
+                  class="btn page-secondary-action-btn" (click)="cancelEditTask(todo.id)">{{'todo.cancel' |translate}}</button>
+                <button *ngIf="enableEdit && enableEditIndex == i" id="saveBtn" class="btn page-primary-action-btn"
+                  (click)="saveTask(todo.id,task)" type="submit">{{'todo.save' |translate}}</button>
+                <a href="#" class="table-row-action edit-action" *ngIf="!enableEdit"
+                  (click)="enableEditMethod($event, i)">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-fill" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                      d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z" />
+                  </svg>
+                </a>
+              </td>
+              <td>
+                <button type="button" class="close" aria-label="Close" (click)="deleteRecord(todo.id)" data-toggle="tooltip" title="{{'todo.deletetask' |translate}}">
+                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash2-fill" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M2.037 3.225l1.684 10.104A2 2 0 0 0 5.694 15h4.612a2 2 0 0 0 1.973-1.671l1.684-10.104C13.627 4.224 11.085 5 8 5c-3.086 0-5.627-.776-5.963-1.775z" />
+                    <path fill-rule="evenodd"
+                      d="M12.9 3c-.18-.14-.497-.307-.974-.466C10.967 2.214 9.58 2 8 2s-2.968.215-3.926.534c-.477.16-.795.327-.975.466.18.14.498.307.975.466C5.032 3.786 6.42 4 8 4s2.967-.215 3.926-.534c.477-.16.795-.327.975-.466zM8 5c3.314 0 6-.895 6-2s-2.686-2-6-2-6 .895-6 2 2.686 2 6 2z" />
+                  </svg>
+                </button>
+              </td>
+
+            </tr>
+          </tbody>
+         
+          <tfoot>
+            <tr>
+              <td colspan="3">
+                <input type="checkbox" class="checkAll" (click)="checkAll($event)" name="checkAll">
+                <label for="checkAll"> {{'todo.checkall' |translate}}</label><br>
+                <button type="button" class="btn btn-outline-info" (click)="processRecords('All')">{{'todo.selectall' |translate}}</button>
+                <button type="button" class="btn btn-outline-danger" (click)="processRecords('Active')">{{'todo.active' |translate}}</button>
+                <button type="button" class="btn btn-outline-success"
+                  (click)="processRecords('Completed')">{{'todo.completed' |translate}}</button>
+              </td>
+              <td>
+                  <span>{{ totalCount}} {{'todo.itemsleft' |translate}}</span>
+                <button type="button" class="btn btn-outline-secondary" (click)="processRecords('Clear')">{{'todo.clearcompleted' |translate}}</button>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </fieldset>
+    <div class="row">
+      <div class="col-md-5">
+        <h5>{{'todo.changetheme' |translate}}</h5>
+        <svg class="brush"  [(colorPicker)]="color1" (colorPickerOpen)="onEventLog('colorPickerOpen', $event)" (colorPickerClose)="onEventLog('colorPickerClose', $event)" (cpInputChange)="onEventLog('cpInputChange', $event)" (cpSliderDragStart)="onEventLog('cpSliderDragStart', $event)" (cpSliderDragEnd)="onEventLog('cpSliderDragEnd', $event)" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-brush" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.117 8.117 0 0 1-3.078.132 3.658 3.658 0 0 1-.563-.135 1.382 1.382 0 0 1-.465-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.393-.197.625-.453.867-.826.094-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.2-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.175-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04zM4.705 11.912a1.23 1.23 0 0 0-.419-.1c-.247-.013-.574.05-.88.479a11.01 11.01 0 0 0-.5.777l-.104.177c-.107.181-.213.362-.32.528-.206.317-.438.61-.76.861a7.127 7.127 0 0 0 2.657-.12c.559-.139.843-.569.993-1.06a3.121 3.121 0 0 0 .126-.75l-.793-.792zm1.44.026c.12-.04.277-.1.458-.183a5.068 5.068 0 0 0 1.535-1.1c1.9-1.996 4.412-5.57 6.052-8.631-2.591 1.927-5.566 4.66-7.302 6.792-.442.543-.796 1.243-1.042 1.826a11.507 11.507 0 0 0-.276.721l.575.575zm-4.973 3.04l.007-.005a.031.031 0 0 1-.007.004zm3.582-3.043l.002.001h-.002z"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

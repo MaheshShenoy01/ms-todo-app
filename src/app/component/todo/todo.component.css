@@ -1,0 +1,121 @@
+header {
+  margin: 22px auto;
+  padding: 14px;
+  background-color: rgba(245, 245, 245, 0.301);
+  width: 100%;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+header svg {
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+header svg:hover {
+  color: red;
+}
+
+p {
+
+  width: 100%;
+
+}
+
+form {
+  width: 90%;
+  margin: 0px auto;
+}
+
+legend {
+  text-align: center;
+  font-size: 30px;
+}
+
+table tr td {
+  border-top: 1px solid rgb(221, 221, 221);
+  vertical-align: middle;
+  padding-top: 2px;
+}
+
+table tr td:first-child {
+  vertical-align: middle;
+  padding-top: 2px;
+}
+
+.table-responsive {
+  background: url(http://i.stack.imgur.com/ynxjD.png) repeat-y;
+  background-size: contain;
+  font: normal 14px verdana;
+  line-height: 25px;
+  padding: 2px 10px;
+  overflow: hidden;
+  font-size: 22px;
+  font-family: courier, monospace;
+
+}
+
+table tr td:first-child,
+table tr td:last-child {
+  width: 10px;
+}
+
+.form-check-input {
+  margin: 0px;
+}
+
+.sub-header {
+  font-size: 50px;
+}
+
+legend {
+  color: rgb(21, 79, 146);
+}
+
+tfoot tr td:first-child {
+  width: 84%;
+  padding: 19px;
+}
+
+tfoot button {
+  margin: 5px;
+}
+
+.strikeout {
+  text-decoration: line-through;
+}
+
+svg.bi-pencil-fill {
+  color: brown;
+}
+
+.checkAll {
+  margin: 13px;
+}
+
+
+.close {
+  width: 100px;
+  height: 50px;
+}
+
+.close svg {
+  width: 25px;
+  height: 25px;
+}
+
+
+.brush{
+  width: 30px;
+  height: 52px;
+}
+h6{
+  text-align: right;
+}
+select{
+  float: right;
+}

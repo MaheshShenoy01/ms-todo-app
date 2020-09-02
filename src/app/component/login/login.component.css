@@ -1,0 +1,21 @@
+p {
+	font-family: Lato;
+  }
+
+  small{
+	  color:red;
+  }
+
+  section{
+	display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+
+  p{
+	margin: 22px auto;
+    padding: 14px;
+    background-color: rgb(245, 245, 245);
+    width: 100%;
+    border-radius: 7px;
+  }

@@ -1,2 +1,4 @@
-# ms-todo-app-ng-rx
-todo app using ngrx with angular
+username: Any valid email id 
+
+Password: 12345 
+
