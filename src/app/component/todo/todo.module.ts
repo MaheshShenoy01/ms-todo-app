@@ -6,7 +6,7 @@ import {  TodoRoutingModule } from './todo-routing.module';
 import { TodoComponent } from './todo.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpLoaderFactory } from 'src/app/app.module';
+import { HttpLoaderFactory, createTranslateLoader } from 'src/app/app.module';
 import { HttpClient } from '@angular/common/http';
 
 @NgModule({
@@ -21,7 +21,7 @@ import { HttpClient } from '@angular/common/http';
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
+          useFactory: createTranslateLoader,
           deps: [HttpClient]
       }
   }),
