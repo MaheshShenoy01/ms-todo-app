@@ -9,9 +9,9 @@ import { TodoService } from 'src/app/services/todo.service';
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-    private loginForm: FormGroup;
-    private isLoggedIn: boolean;
-    private error: string;
+     loginForm: FormGroup;
+     isLoggedIn: boolean;
+     error: string;
     constructor(public router: Router, public loginService: LoginService, public todoService: TodoService) {
         this.loginForm = new FormGroup({
             email: new FormControl('', [Validators.required, Validators.email]),

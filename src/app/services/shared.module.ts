@@ -13,13 +13,7 @@ const MODULES = [
   ReactiveFormsModule,
 ];
 
-const PIPES = [
-  // put pipes here
-];
 
-const COMPONENTS = [
-  // put shared components here
-];
 
 const PROVIDERS = [
   ApiService,
@@ -32,13 +26,10 @@ const PROVIDERS = [
     ...MODULES
   ],
   declarations: [
-    ...PIPES,
-    ...COMPONENTS
+
   ],
   exports: [
-    ...MODULES,
-    ...PIPES,
-    ...COMPONENTS
+
   ],
   providers: [PROVIDERS]
 })

@@ -5,8 +5,8 @@ import { TodoService } from '../../services/todo.service';
 import { LoginService } from 'src/app/services/login.service';
 import { Subscription } from 'rxjs';
 import { todo } from 'src/app/store/models/todo.model';
-import { ColorPickerService } from 'ngx-color-picker';
-import { Cmyk } from 'ngx-color-picker';
+
+import { Cmyk, ColorPickerService } from 'ngx-color-picker';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -27,9 +27,8 @@ export class TodoComponent implements OnInit, OnDestroy {
     public enableEditIndex;
     public editedTask;
     public totalCount;
-    public arrayColors: any = {
-        color1: '#2883e9'
-    };
+    public arrayColors: any ;
+    public color1: any ;
     public cmykValue: string;
     public emailId: string;
     public cmykColor: Cmyk;
@@ -48,6 +47,9 @@ export class TodoComponent implements OnInit, OnDestroy {
         this.emailId = '';
         this.cmykColor = new Cmyk(0, 0, 0, 0);
         this.isSubmited = false;
+        this.arrayColors = {
+            color1: '#2883e9'
+        };
 
     }
 

@@ -1,0 +1,22 @@
+{
+    "todo": {
+      "welcome": "स्वागत",
+      "application":"अनुप्रयोग",
+      "changelanguage": "भाषा बदलो",
+      "changetheme":"थीम बदलें",
+      "logout":"लॉग आउट",
+      "todo":"टूडू",
+      "placeholder": "आपके टूडू लिस्ट में आगे क्या है",
+      "cancel":"रद्द करना",
+      "completetask":"कार्य पूरा करें",
+      "edittask":"कार्य संपादित करें",
+      "deletetask":"टास्क को डिलीट करें",
+      "save":"सहेजें",
+      "checkall":"सभी कार्यों की जाँच करें",
+      "selectall":"सभी का चयन करे",
+      "active":"सक्रिय",
+      "completed":"पूर्ण कार्य",
+      "itemsleft":"बचे है",
+      "clearcompleted":"पूरा हो गया"
+    }
+  }
