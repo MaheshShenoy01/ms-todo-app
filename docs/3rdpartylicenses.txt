@@ -230,13 +230,22 @@ Apache-2.0
  
 
 
+@ngrx/entity
+MIT
+
 @angular/core
+MIT
+
+ngx-color-picker
 MIT
 
 @angular/common
 MIT
 
 @ngx-translate/http-loader
+MIT
+
+@angular/router
 MIT
 
 tslib
@@ -460,10 +469,10 @@ Apache-2.0
  
 
 
-@angular/router
+@angular/forms
 MIT
 
-ngx-color-picker
+@ngrx/store
 MIT
 
 @angular/platform-browser
@@ -473,15 +482,6 @@ MIT
 MIT
 
 @angular/http
-MIT
-
-@angular/forms
-MIT
-
-@ngrx/store
-MIT
-
-@ngrx/entity
 MIT
 
 zone.js
@@ -507,3 +507,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+
+
+@ngx-translate/core
+MIT
