@@ -5,11 +5,11 @@ import { LoginGuard } from './gaurd';
 const routes: Routes = [
     {
         path: 'login',
-        loadChildren: './component/login/login.module'
+        loadChildren: './component/login/login.module#LoginModule'
     },
     {
         path: 'todo',
-        loadChildren: './component/todo/todo.module',
+        loadChildren: './component/todo/todo.module#TodoModule',
         canActivate: [LoginGuard]
     },
     {
